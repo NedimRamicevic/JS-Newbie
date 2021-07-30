@@ -1,4 +1,3 @@
-document.querySelector('.içerik > button').
-addEventListener('click',function(){
-    console.log('heloo')
-})
+    function onClick(e){
+    e.parentNode.style.backgroundColor = "red"
+}
