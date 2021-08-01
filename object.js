@@ -1,13 +1,25 @@
 // function Person(name,birthYear){
 //     this.name = name
+//     this.age =  birthYear
+// }
+// Person.prototype.yaş = function() {
 //     let year = new Date().getFullYear()
-//     this.age = year - birthYear
+//     return year - this.age    
 // }
 // Person.prototype.greet = function() {
 //     console.log(`Ad: ${this.name} 
-// Yaş: ${this.age}`)
+// Yaş: ${this.yaş}`)
+// }
+// function Engineer(name,birthYear,type){
+//     Person.call(this,name,birthYear)
+//     this.type = type
+// }
+// Engineer.prototype.sayWhoYouAre = function() {
+//     console.log(`I'm ${this.name} ${this.yaş} and ${this.type} engineer `)
 // }
 
+// Engineer.prototype = Object.create(Person.prototype)
+// Engineer.prototype.constructor = Engineer
 class Person{
     constructor(name,birthdate){
         this.name = name
@@ -37,3 +49,4 @@ class Engineer extends Person{
 }
 let Neim = new Engineer("Neim",1994,"Industrial")
 Neim.sayWhoYouAre()
+Neim.greet()
