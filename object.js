@@ -13,12 +13,27 @@ class Person{
         this.name = name
         this.birthdate = birthdate
     }
-    greet(){
+    yaş(){
         let year = new Date().getFullYear()
-        console.log(`ad: ${this.name}  \nyaş: ${year - this.birthdate} `)
+        return year - this.birthdate
+    }
+    greet(){
+        console.log(`ad: ${this.name}  \nyaş: ${this.yaş()} `)
     }
 }
 let Nedim = new Person("Nedim",1994)
 let Aydın = new Person("Aydın",1962)
 Aydın.greet()
 Nedim.greet()
+
+class Engineer extends Person{
+    constructor(name,birthdate,type){
+        super(name,birthdate)
+        this.type = type
+    }
+    sayWhoYouAre(){
+        console.log(`I'm ${this.name} ${this.yaş()} and ${this.type} engineer `)
+    }
+}
+let Neim = new Engineer("Neim",1994,"Industrial")
+Neim.sayWhoYouAre()
