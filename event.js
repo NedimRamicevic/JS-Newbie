@@ -1,5 +1,9 @@
 function onClick(e) {
-  e.parentNode.style.backgroundColor = "red";
+  e.parentNode.style.backgroundColor = "red"
+  e.parentNode.style.gridRow = "1"
+  e.parentNode.style.gridColumn = "3"
+  
+  
 }
 function mouseOver(node) {
   node.parentNode.style.backgroundColor = "purple";
