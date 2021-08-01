@@ -50,3 +50,5 @@ class Engineer extends Person{
 let Neim = new Engineer("Neim",1994,"Industrial")
 Neim.sayWhoYouAre()
 Neim.greet()
+Neim.name = "nedim"
+Neim.sayWhoYouAre()
