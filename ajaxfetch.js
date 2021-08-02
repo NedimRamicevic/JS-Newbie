@@ -34,9 +34,17 @@ function loadUser() {
           </p>
           <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
         </li>
+        <li class="collection-item avatar">
+          <img src="${user.avatar}" alt="" class="circle">
+          <span class="title">Title</span>
+          <p>${user.first_name}<br>
+             ${user.last_name}
+          </p>
+          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+        </li>
         </ul>`;
       document.querySelector(".naber").innerHTML = output;
-      document.querySelector(".naber").
+      document.querySelector(".naber").style.gridColumn = 1/3
     }
   };
   xhr1.send();
