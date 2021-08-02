@@ -25,7 +25,7 @@ header a {
 .info {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows:;
+  grid-template-rows: auto 1fr 1fr 1fr;
   gap: 10px;
   min-height: 0;  /* NEW */
   min-width: 0; 
@@ -67,15 +67,14 @@ header a {
   grid-row: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   overflow: hidden
 
 }
 .collection-item.avatar {
   display: flex;
   flex-direction: row;
-  overflow: hidden
+  overflow: hidden;
   justify-content: left;
-  /* margin-bottom: 10px; */
+  margin-bottom: 10px;
 }
 

@@ -24,27 +24,21 @@ function loadUser() {
     console.log(xhr1.readyState);
     if (this.status === 200) {
       console.log(this.responseText);
-      const user = JSON.parse(xhr1.responseText);
-      const output = `
-        <div class="collection-item avatar">
-          <img src="${user.avatar}" alt="" class="circle">
-          <div class = "ss">
-          <span class="title">Title</span>
-          <p>${user.first_name}<br>
-             ${user.last_name}
-          </p>
-          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-          </div>
-        </div>
-        <div class="collection-item avatar">
-          <img src="${user.avatar}" alt="" class="circle">
-          <span class="title">Title</span>
-          <p>${user.first_name}<br>
-             ${user.last_name}
-          </p>
-          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-        </div>
-        `;
+      const users = JSON.parse(xhr1.responseText);
+      let output = ''
+      users.forEach((user) => {
+        output += `
+            <div class="collection-item avatar">
+              <img src="${user.avatar}" alt="" class="circle">
+              <div class = "ss">
+              <span class="title">Title</span>
+              <p>${user.first_name}<br>
+                 ${user.last_name}
+              </p>
+              <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+              </div>
+            </div>`;
+      });
       document.querySelector(".naber").innerHTML = output;
       document.querySelector(".naber").style.gridColumn = 1 / 3;
     }
