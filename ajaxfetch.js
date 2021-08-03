@@ -15,33 +15,44 @@ function retriveData() {
 
 document.getElementById("2").addEventListener("click", loadUser);
 
+// function loadUser() {
+//   console.log("naber");
+//   const xhr1 = new XMLHttpRequest();
+//   xhr1.open("GET", "data.json", true);
+//   console.log(xhr1.readyState);
+//   xhr1.onload = function () {
+//     console.log(xhr1.readyState);
+//     if (this.status === 200) {
+//       console.log(this.responseText);
+//       const users = JSON.parse(xhr1.responseText);
+//       let output = ''
+//       users.forEach((user) => {
+//         output += `
+//             <div class="collection-item avatar">
+//               <img src="${user.avatar}" alt="" class="circle">
+//               <div class = "ss">
+//               <span class="title">Title</span>
+//               <p>${user.first_name}<br>
+//                  ${user.last_name}
+//               </p>
+//               <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+//               </div>
+//             </div>`;
+//       });
+//       document.querySelector(".naber").innerHTML = output;
+//       document.querySelector(".naber").style.gridColumn = 1 / 3;
+//     }
+//   };
+//   xhr1.send();
+// }
 function loadUser() {
-  console.log("naber");
-  const xhr1 = new XMLHttpRequest();
-  xhr1.open("GET", "data.json", true);
-  console.log(xhr1.readyState);
-  xhr1.onload = function () {
-    console.log(xhr1.readyState);
-    if (this.status === 200) {
-      console.log(this.responseText);
-      const users = JSON.parse(xhr1.responseText);
-      let output = ''
-      users.forEach((user) => {
-        output += `
-            <div class="collection-item avatar">
-              <img src="${user.avatar}" alt="" class="circle">
-              <div class = "ss">
-              <span class="title">Title</span>
-              <p>${user.first_name}<br>
-                 ${user.last_name}
-              </p>
-              <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-              </div>
-            </div>`;
+  fetch("data.txt")
+    .then(function (res) {
+      res.json().then(function (data) {
+        console.log(data);
       });
-      document.querySelector(".naber").innerHTML = output;
-      document.querySelector(".naber").style.gridColumn = 1 / 3;
-    }
-  };
-  xhr1.send();
+    })
+    .catch(function (err) {
+      console.log("err : ", err);
+    });
 }
