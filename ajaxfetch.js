@@ -45,14 +45,42 @@ document.getElementById("2").addEventListener("click", loadUser);
 //   };
 //   xhr1.send();
 // }
+// function loadUser() {
+//   fetch("data.txt")
+//     .then(function (res) {
+//       return res.text();
+//     })
+//     .then((data) => {
+//       console.log("data : ", data);
+//     })
+//     .catch((err) => {
+//       console.log("err : ", err);
+//     });
+// }
 function loadUser() {
-  fetch("data.txt")
-    .then(function (res) {
-      res.json().then(function (data) {
-        console.log(data);
-      });
+  console.log("naber");
+  fetch("data.json")
+    .then((response) => {
+      return response.json();
     })
-    .catch(function (err) {
-      console.log("err : ", err);
+    .then((data) => {
+      console.log(data);
+      const users = data;
+      let output = "";
+      users.forEach((user) => {
+        output += `
+              <div class="collection-item avatar">
+                <img src="${user.avatar}" alt="" class="circle">
+                <div class = "ss">
+                <span class="title">Title</span>
+                <p>${user.first_name}<br>
+                   ${user.last_name}
+                </p>
+                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                </div>
+              </div>`;
+      });
+      document.querySelector(".naber").innerHTML = output;
+      document.querySelector(".naber").style.gridColumn = 1 / 3;
     });
 }
