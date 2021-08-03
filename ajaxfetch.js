@@ -58,10 +58,11 @@ document.getElementById("2").addEventListener("click", loadUser);
 //     });
 // }
 function loadUser() {
-  console.log("naber");
   fetch("data.json")
     .then((response) => {
-      return response.json();
+      if (response.ok) {
+        return response.json();
+      } else console.log("errorss");
     })
     .then((data) => {
       console.log(data);
@@ -82,5 +83,8 @@ function loadUser() {
       });
       document.querySelector(".naber").innerHTML = output;
       document.querySelector(".naber").style.gridColumn = 1 / 3;
+    })
+    .catch((err) => {
+      console.log("error: ", err);
     });
 }
